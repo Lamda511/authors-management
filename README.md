@@ -1,2 +1,2 @@
 # authors-management
-Sample project created with Maven, Struts, JPA and JSP
+Application that handles authors management created in Java with Maven, Struts, Hibernate and JSP
