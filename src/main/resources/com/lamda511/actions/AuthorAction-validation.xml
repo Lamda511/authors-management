@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.2//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+    <field name="name">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="ActionField.Name.RequredString"/>
+        </field-validator>
+
+        <field-validator type="stringlength">
+            <param name="maxLength">50</param>
+            <message key="ActionField.Name.ValueTooLong"/>
+        </field-validator>
+    </field>
+
+    <field name="biography">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="ActionField.FullBiography.RequredString"/>
+        </field-validator>
+
+        <field-validator type="stringlength">
+            <param name="maxLength">250</param>
+            <message key="ActionField.FullBiography.ValueTooLong"/>
+        </field-validator>
+    </field>
+
+    <field name="miniBio">
+        <field-validator type="stringlength">
+            <param name="maxLength">150</param>
+            <message key="ActionField.ShortBiography.ValueTooLong"/>
+        </field-validator>
+    </field>
+</validators>

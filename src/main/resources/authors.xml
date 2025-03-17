@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<!-- Define the authors actions -->
+<struts>
+    <package name="authors" namespace="/authors" extends="struts-default">
+
+        <global-results>
+            <result name="error">/WEB-INF/authors/Error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+        <!-- Create Author Form Action -->
+        <action name="createAuthorFormPage" class="com.lamda511.actions.CreateAuthorForm" method="execute">
+            <interceptor-ref name="defaultStack">
+                <param name="allowedTypes">image/png,image/gif,image/jpeg</param>
+            </interceptor-ref>
+            <result>/WEB-INF/authors/CreateUpdateAuthor.jsp</result>
+        </action>
+
+        <!-- Create Author Action -->
+        <action name="addAuthor" class="com.lamda511.actions.CreateAuthor" method="execute">
+            <result name="success" type="redirect">listAuthors</result>
+            <result name="input">/WEB-INF/authors/CreateUpdateAuthor.jsp</result>
+
+        </action>
+
+        <!-- Edit author Form Action -->
+        <action name="editAuthorFormPage" class="com.lamda511.actions.EditAuthorForm" method="execute">
+            <interceptor-ref name="defaultStack">
+                <param name="allowedTypes">image/png,image/gif,image/jpeg</param>
+            </interceptor-ref>
+            <result>/WEB-INF/authors/CreateUpdateAuthor.jsp</result>
+        </action>
+
+        <!-- Edit Author Action -->
+        <action name="updateAuthor" class="com.lamda511.actions.EditAuthor" method="execute">
+            <result name="success" type="redirect">listAuthors</result>
+            <result name="input">/WEB-INF/authors/CreateUpdateAuthor.jsp</result>
+        </action>
+
+        <!-- List Authors Action -->
+        <action name="listAuthors" class="com.lamda511.actions.ListAuthors">
+            <result>/WEB-INF/authors/ListAuthors.jsp</result>
+        </action>
+
+    </package>
+</struts>
